@@ -1,12 +1,12 @@
-# action.yaml
-name: 'Kubescape installer and runner by Otomato'
-description: 'Otomato: GitHub action to scan given k8s manifests using kubescape by ARMO'
+name: 'Kubescape Action'
+author: 'rbalashevich'
+description: 'GitHub action to scan given k8s manifests using kubescape by ARMO'
 branding:
   icon: 'upload-cloud'
   color: 'blue'
 inputs:
   kubescape-version:
-  description: 'kubescape release to use'
+    description: 'kubescape release to use'
     required: true
     default: 'v2.0.158'
   path:
@@ -22,13 +22,11 @@ inputs:
     # Supported formats: "pretty-printer","json","junit","prometheus","pdf" (default "pretty-printer")
     required: false
     default: 'pretty-printer'
-outputs:
-  output:
-    description: 'Dummy log'
 runs:
   using: 'docker'
-  image: 'rbalashevich/kubescape-cli:${{ inputs.kubescape-version }}'
+  image: 'Dockerfile'
   args:
+    - ${{ inputs.kubescape-version }}
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
     - ${{ inputs.format }}
