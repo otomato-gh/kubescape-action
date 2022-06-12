@@ -6,7 +6,7 @@ How to use kubescape in CI. Sample actions. Desired features (schematically, wit
           kubescape-version: 'v2.0.155'
           output: 'JSON'
 ```
-From where is possible to get ELF binary version:
+From where is possible to get a version of involved ELF binary:
 ```
 https://github.com/armosec/kubescape/releases/download/v2.0.158/kubescape-ubuntu-latest
 ```
