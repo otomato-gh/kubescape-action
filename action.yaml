@@ -29,6 +29,7 @@ runs:
   using: 'docker'
   image: 'rbalashevich/kubescape-cli:${{ inputs.kubescape-version }}'
   args:
+    - ${{ inputs.kubescape-version }}
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
     - ${{ inputs.format }}
