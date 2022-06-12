@@ -27,7 +27,7 @@ outputs:
     description: 'Dummy log'
 runs:
   using: 'docker'
-  image: 'rbalashevich/kubescape-cli:${{ inputs.kubescape_version }}'
+  image: 'rbalashevich/kubescape-cli:${{ inputs.kubescape-version }}'
   args:
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
