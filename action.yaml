@@ -1,4 +1,4 @@
-name: 'Kubescape installer and runner by Otomato'
+name: 'Kubescape Action'
 author: rbalashevich
 description: 'Otomato: GitHub action to scan given k8s manifests using kubescape by ARMO'
 branding:
