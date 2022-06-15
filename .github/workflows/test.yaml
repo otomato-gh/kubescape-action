@@ -11,6 +11,6 @@ jobs:
       - name: Scan files 
         uses: otomato-gh/kubescape-action@main
         with:
-          kubescape-version: 'v2.0.155'
+          ksversion: 'v2.0.155'
           format: 'json'
           path: 'deploy.yaml'
