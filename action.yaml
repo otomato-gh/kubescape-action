@@ -5,7 +5,7 @@ branding:
   icon: 'upload-cloud'
   color: 'blue'
 inputs:
-  kubescape-version:
+  ksversion:
   description: 'kubescape release to use'
     required: true
     default: 'v2.0.158'
@@ -26,7 +26,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.kubescape-version }}
+    - ${{ inputs.ksversion }}
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
     - ${{ inputs.format }}
