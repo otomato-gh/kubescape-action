@@ -1,6 +1,6 @@
 name: 'Kubescape Action'
 author: 'rbalashevich'
-description: 'Otomato: GitHub action to scan given k8s manifests using kubescape by ARMO'
+description: 'GitHub action to scan given k8s manifests using kubescape by ARMO'
 branding:
   icon: 'upload-cloud'
   color: 'blue'
@@ -22,9 +22,6 @@ inputs:
     # Supported formats: "pretty-printer","json","junit","prometheus","pdf" (default "pretty-printer")
     required: false
     default: 'pretty-printer'
-outputs:
-  output:
-    description: 'Dummy log'
 runs:
   using: 'docker'
   image: 'Dockerfile'
