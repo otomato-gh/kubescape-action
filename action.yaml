@@ -1,5 +1,5 @@
 name: 'Kubescape Action'
-author: rbalashevich
+author: 'rbalashevich'
 description: 'Otomato: GitHub action to scan given k8s manifests using kubescape by ARMO'
 branding:
   icon: 'upload-cloud'
