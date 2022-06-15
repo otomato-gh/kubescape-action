@@ -1,0 +1,16 @@
+name: Test
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prepare file
+        run: |
+          curl -O https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+      - name: Scan files 
+        uses: otomato-gh/kubescape-action@main
+        with:
+          kubescape-version: 'v2.0.155'
+          format: 'json'
+          path: 'deploy.yaml'
