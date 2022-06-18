@@ -7,7 +7,7 @@ kubescape --version
 
 if test -z "$3"
 then 
-kubescape scan framework nsa $2 *.yaml -f $4
+kubescape scan framework nsa $2 deployment.yaml -f $4
 else 
-kubescape scan framework nsa $2 *.yaml -t $3 -f $4 
+kubescape scan framework nsa $2 deployment.yaml -t $3 -f $4 
 fi 
