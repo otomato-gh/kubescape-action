@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eax
 
-echo "https://github.com/armosec/kubescape/releases/download/${{ inputs.ksversion }}/kubescape-ubuntu-latest"
+echo "https://github.com/armosec/kubescape/releases/download/$1/kubescape-ubuntu-latest"
 curl -sL -o /usr/bin/kubescape \
     https://github.com/armosec/kubescape/releases/download/$1/kubescape-ubuntu-latest
     
