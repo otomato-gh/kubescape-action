@@ -26,8 +26,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ github.event.inputs.ksversion}}
-    - ${{ github.event.inputs.path }}
-    - ${{ github.event.inputs.threshold }}
-    - ${{ github.event.inputs.format }}
+    - ${{ inputs.ksversion}}
+    - ${{ inputs.path }}
+    - ${{ inputs.threshold }}
+    - ${{ inputs.format }}
     
