@@ -13,4 +13,4 @@ jobs:
         with:
           kubescape-version: 'v2.0.155'
           format: 'json'
-          path: 'deployment.yaml'
+          path: 'deploy.yaml'
