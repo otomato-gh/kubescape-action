@@ -3,7 +3,7 @@ How to use kubescape in CI. Sample actions. Desired features (schematically, wit
 ```- name: Run Kubescape
         uses: otomato-gh/kubescape-action@master
         with:
-          kubescape-version: 'v2.0.155'
+          ksversion: 'v2.0.155'
           format: 'json'
 ```
 From where is possible to get a version of involved ELF binary:
