@@ -1,11 +1,10 @@
-FROM ubuntu:20.04
+FROM alpine
 
 ARG kubescape-version
 ENV KUBESCAPE_VERSION=$kubescape-version
 ENV KUBESCAPE_SKIP_UPDATE_CHECK 1
 
-RUN apt-get -qq update && apt-get -qq -y install apt-utils 
-RUN apt-get -qq -y install curl
+RUN apk update && apk add curl
 
 RUN curl -sL -o /usr/bin/kubescape \
     https://github.com/armosec/kubescape/releases/download/${KUBESCAPE_VERSION}/kubescape-ubuntu-latest
