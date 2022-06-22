@@ -29,3 +29,5 @@ then
 kubescape scan framework nsa $2 -f $4 $5
 else 
 kubescape scan framework nsa $2 -t $3 -f $4 $5
+fi
+
