@@ -22,6 +22,13 @@ inputs:
     # Supported formats: "pretty-printer","json","junit","prometheus","pdf" (default "pretty-printer")
     required: false
     default: 'pretty-printer'
+  saveto:
+    description: 'Save results to file (optional)'
+    required: false
+    default: ''
+    if: ${{ inputs.format == "json' }}
+    env:
+      SAVETO: --output result.json
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -30,4 +37,5 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
     - ${{ inputs.format }}
+  
     
