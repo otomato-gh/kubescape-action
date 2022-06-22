@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eax
 
 echo "https://github.com/armosec/kubescape/releases/download/$1/kubescape-ubuntu-latest"
