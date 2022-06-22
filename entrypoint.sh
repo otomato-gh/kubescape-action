@@ -26,7 +26,7 @@ kubescape --version
 
 if test -z "$3"
 then 
-kubescape scan framework nsa $2 -f $4 $SAVETO
+kubescape scan framework nsa $2 -f $4 ${saveto}
 else 
-kubescape scan framework nsa $2 -t $3 -f $4 $SAVETO
+kubescape scan framework nsa $2 -t $3 -f $4 ${saveto}
 fi 
