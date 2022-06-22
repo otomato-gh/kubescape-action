@@ -28,7 +28,7 @@ inputs:
     default: ''
     if: (github.event.inputs.format == 'json')
     env:
-      SAVETO: --output result.json
+      SAVETO: '--output result.json'
 runs:
   using: 'docker'
   image: 'Dockerfile'
