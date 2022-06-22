@@ -13,16 +13,13 @@ kubescape --version
 
 echo "Output format is set to: $4"
 
-if [ "$4" == "json" ]
-then  
+if [ "$4" == "json" ]; then  
 export savetostr="--output results.json"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
-elif [ "$4" == "junit" ] 
-then 
+elif [ "$4" == "junit" ]; then 
 export savetostr="--output results.xml"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
-elif [ "$4" == "pdf" ] 
-then 
+elif [ "$4" == "pdf" ]; then 
 export savetostr="--output results.pdf"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 fi
