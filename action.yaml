@@ -26,7 +26,7 @@ inputs:
     description: 'Save results to file (optional)'
     required: false
     default: ''
-    if: ${{ inputs.format == 'json' }}
+    if: (github.event.inputs.format == 'json')
     env:
       SAVETO: --output result.json
 runs:
