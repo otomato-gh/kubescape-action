@@ -11,6 +11,8 @@ kubescape --version
 
 # specifying output file to save results to
 
+echo "Output format is set to: $4"
+
 #if [ $4 == "json" ]
 #then  
 #  saveto="--format-version v2 --output results.json"
@@ -26,8 +28,8 @@ kubescape --version
 
 if test -z "$3"
 then 
-kubescape scan framework nsa $2 -f $4 $5
+kubescape scan framework nsa $2 -f $4 $saveto
 else 
-kubescape scan framework nsa $2 -t $3 -f $4 $5
+kubescape scan framework nsa $2 -t $3 -f $4 $saveto
 fi
 
