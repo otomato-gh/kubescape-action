@@ -14,3 +14,8 @@ jobs:
           ksversion: 'v2.0.155'
           format: 'json'
           path: 'deploy.yaml'
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: result
+          path: /
