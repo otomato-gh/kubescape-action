@@ -1,8 +1,5 @@
 FROM ubuntu:20.04
 
-ARG SAVETO
-ENV saveto=$SAVETO
-
 ENV KUBESCAPE_SKIP_UPDATE_CHECK 1
 RUN apt-get update && apt-get install -y curl
 COPY entrypoint.sh /entrypoint.sh
