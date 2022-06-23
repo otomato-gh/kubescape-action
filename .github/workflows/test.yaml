@@ -20,8 +20,8 @@ jobs:
         with:
          name: scan-results
          path: |
-           /results.json
-           /results.xml
-           /results.pdf
+           results.json
+           results.xml
+           results.pdf
            
           
