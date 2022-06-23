@@ -5,7 +5,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: prepare file
+      - name: Prepare file to scan
         run: |
           curl -O https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
       - name: Scan files 
@@ -14,4 +14,10 @@ jobs:
           ksversion: 'v2.0.155'
           format: 'json'
           path: 'deploy.yaml'
+      - name: Retrieve Results
+        if: always()
+        uses: actions/upload-artifact@v1
+        with:
+         name: scan-results
+         path: result.*
           
