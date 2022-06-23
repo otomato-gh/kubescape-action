@@ -31,8 +31,6 @@ jobs:
       #  if: always() 
       #  with:
       #     python-version: 3.8
-      - name: Retrieve Scan Results
-              # Store this asset in 'gh-storage' branch.
       - name: Save results in a new orphan storage branch
         uses: sylvanld/action-storage@v1
         if: always()
