@@ -10,7 +10,7 @@ chmod +x /usr/bin/kubescape
 kubescape --version 
 
 # specifying output file to save results to`
-$filetimestamp =`date +"%Y_%m_%d_%T"`
+export filetimestamp =`date +"%Y_%m_%d_%T"`
 
 echo "Output format is set to: $4"
 
