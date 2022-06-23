@@ -26,6 +26,10 @@ jobs:
       #     results.json
       #     results.xml
       #     results.pdf
+      - name: Setup Python (for the next step)
+        uses: actions/setup-python@v3
+        with:
+           python-version: 3.8
       - name: Retrieve Scan Results
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: always()
