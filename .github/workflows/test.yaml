@@ -28,6 +28,7 @@ jobs:
       #     results.pdf
       - name: Setup Python (for the next step)
         uses: actions/setup-python@v3
+        if: always() 
         with:
            python-version: 3.8
       - name: Retrieve Scan Results
