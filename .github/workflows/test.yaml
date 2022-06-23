@@ -31,13 +31,28 @@ jobs:
       #  if: always() 
       #  with:
       #     python-version: 3.8
-      - name: Save results in a new branch
-        uses: sylvanld/action-storage@v1
-        if: always()
+      - name: Send Scan Results by E-mail
+        uses: dawidd6/action-send-mail@v3
         with:
-          storage-branch: scan-results
-          src: results.json
-          dst: results.json
+          server_address: smtp.gmail.com
+          server_port: 465
+          # Optional (recommended): mail server username:
+          # username: ${{secrets.MAIL_USERNAME}}
+          # Optional (recommended) mail server password:
+          # password: ${{secrets.MAIL_PASSWORD}}
+          subject: GHA Kubescape Scan Result
+          to: roman@otomato.io        
+          from: GitHub Actions Runner <runner@github.com>
+          secure: true
+          # Optional plain body:
+          body: Report from ${{github.repository}} are ready! See attachment.
+          # Optional HTML body read from file:
+          # html_body: file://README.html
+          ignore_cert: true
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          convert_markdown: false
+          # Optional attachments:
+          attachments: results.*
           
           
           
