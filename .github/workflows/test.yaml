@@ -31,11 +31,13 @@ jobs:
       #  if: always() 
       #  with:
       #     python-version: 3.8
-      - name: Save results in a new orphan storage branch
+      - name: Save results in a new branch
         uses: sylvanld/action-storage@v1
         if: always()
         with:
-          src: results.*
-          dst: scan-results/results.*
+          storage-branch: scan-results
+          src: results.json
+          dst: results.json
+          
           
           
