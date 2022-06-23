@@ -14,14 +14,22 @@ jobs:
           ksversion: 'v2.0.155'
           format: 'json'
           path: 'deploy.yaml'
-      - name: Retrieve Results
-        if: always() 
-        uses: actions/upload-artifact@v1
+      - name: Observe Runner Directory
+        if: always()
+        run: ls -a .
+      #- name: Retrieve Scan Results
+      #  if: always() 
+      #  uses: actions/upload-artifact@v1
+      #  with:
+      #   name: scan-results
+      #   path: |
+      #     results.json
+      #     results.xml
+      #     results.pdf
+      - name: Retrieve Scan Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+        if: always()
         with:
-         name: scan-results
-         path: |
-           results.json
-           results.xml
-           results.pdf
+          files: "results.*"
            
           
