@@ -14,9 +14,9 @@ jobs:
           ksversion: 'v2.0.155'
           format: 'json'
           path: 'deploy.yaml'
-      - name: Observe Runner Directory
-        if: always()
-        run: ls -a .
+      #- name: Observe Runner Directory (Debug only)
+      #  if: always()
+      #  run: ls -a .
       #- name: Send Scan Results by E-mail
       #  if: always()
       #  uses: dawidd6/action-send-mail@v3
@@ -45,6 +45,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: scan-results
-          path: results*.*         
+          path: results.*         
           
           
