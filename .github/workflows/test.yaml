@@ -16,8 +16,13 @@ jobs:
           path: 'deploy.yaml'
       - name: Retrieve Results
         if: always()
+        
         uses: actions/upload-artifact@v1
         with:
          name: scan-results
-         path: results.*
+         path: |
+           /results.json
+           /results.xml
+           /results.pdf
+           
           
