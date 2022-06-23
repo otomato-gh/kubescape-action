@@ -17,43 +17,34 @@ jobs:
       - name: Observe Runner Directory
         if: always()
         run: ls -a .
-      #- name: Retrieve Scan Results
-      #  if: always() 
-      #  uses: actions/upload-artifact@v1
+      #- name: Send Scan Results by E-mail
+      #  if: always()
+      #  uses: dawidd6/action-send-mail@v3
       #  with:
-      #   name: scan-results
-      #   path: |
-      #     results.json
-      #     results.xml
-      #     results.pdf
-      #- name: Setup Python
-      #  uses: actions/setup-python@v3
-      #  if: always() 
-      #  with:
-      #     python-version: 3.8
-      - name: Send Scan Results by E-mail
-        if: always()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
+      #    server_address: smtp.gmail.com
+      #    server_port: 465
           # Optional (recommended): mail server username:
           # username: ${{secrets.MAIL_USERNAME}}
           # Optional (recommended) mail server password:
           # password: ${{secrets.MAIL_PASSWORD}}
-          subject: GHA Kubescape Scan Result
-          to: roman@otomato.io        
-          from: GitHub Actions Runner <runner@github.com>
-          secure: true
+      #    subject: GHA Kubescape Scan Result
+      #    to: roman@otomato.io        
+      #    from: GitHub Actions Runner <runner@github.com>
+      #    secure: true
           # Optional plain body:
-          body: Report from ${{github.repository}} are ready! See attachment.
+      #    body: Report from ${{github.repository}} are ready! See attachment.
           # Optional HTML body read from file:
           # html_body: file://README.html
-          ignore_cert: true
+      #    ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: false
+      #    convert_markdown: false
           # Optional attachments:
-          attachments: results.*
-          
+      #    attachments: results.*
+      - name: Retrieve Scan Results via File To Branch Copy
+        if: always() 
+        uses: planetoftheweb/copy-to-branches@v1
+        env:
+          key: main
+          files: results.*          
           
           
