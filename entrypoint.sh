@@ -9,18 +9,19 @@ chmod +x /usr/bin/kubescape
 
 kubescape --version 
 
-# specifying output file to save results to
+# specifying output file to save results to`
+$filetimestamp =`date +"%Y_%m_%d_%T"
 
 echo "Output format is set to: $4"
 
 if [[ "$4" == "json" ]]; then  
-export savetostr="--format-version v2 --output results.json"
+export savetostr="--format-version v2 --output results_$filetimestamp.json"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 elif [[ "$4" == "junit" ]]; then 
-export savetostr="--output results.xml"
+export savetostr="--output results_$filetimestamp.xml"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 elif [[ "$4" == "pdf" ]]; then 
-export savetostr="--output results.pdf"
+export savetostr="--output results_$filetimestamp.pdf"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 fi
 
