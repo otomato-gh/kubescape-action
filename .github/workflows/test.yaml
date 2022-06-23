@@ -19,5 +19,5 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
          name: scan-results
-         path: result.*
+         path: results.*
           
