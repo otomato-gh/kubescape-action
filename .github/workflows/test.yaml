@@ -36,6 +36,8 @@ jobs:
         with:
           check_name: "Kubescape: Saved Scan Results"
           ignore_runs: true
+          check_run_annotations: none
+          pull_request_build: commit
           files: "results.*"
            
           
