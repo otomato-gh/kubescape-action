@@ -14,7 +14,7 @@ kubescape --version
 echo "Output format is set to: $4"
 
 if [[ "$4" == "json" ]]; then  
-export savetostr="--output --format-version=v2 results.json"
+export savetostr="--format-version v2 --output results.json"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 elif [[ "$4" == "junit" ]]; then 
 export savetostr="--output results.xml"
