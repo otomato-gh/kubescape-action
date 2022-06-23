@@ -15,8 +15,7 @@ jobs:
           format: 'json'
           path: 'deploy.yaml'
       - name: Retrieve Results
-        if: always()
-        
+        if: always() 
         uses: actions/upload-artifact@v1
         with:
          name: scan-results
