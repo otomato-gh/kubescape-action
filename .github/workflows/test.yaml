@@ -30,6 +30,8 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action/composite@v1
         if: always()
         with:
+          check_name: "Kubescape: Saved Scan Results"
+          ignore_runs: true
           files: "results.*"
            
           
