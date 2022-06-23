@@ -26,20 +26,18 @@ jobs:
       #     results.json
       #     results.xml
       #     results.pdf
-      - name: Setup Python (for the next step)
-        uses: actions/setup-python@v3
-        if: always() 
-        with:
-           python-version: 3.8
+      #- name: Setup Python
+      #  uses: actions/setup-python@v3
+      #  if: always() 
+      #  with:
+      #     python-version: 3.8
       - name: Retrieve Scan Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
+              # Store this asset in 'gh-storage' branch.
+      - name: Save results in a new orphan storage branch
+        uses: sylvanld/action-storage@v1
         if: always()
         with:
-          check_name: "Kubescape: Saved Scan Results"
-          ignore_runs: true
-          check_run_annotations: none
-          fail_on: nothing
-          pull_request_build: commit
-          files: "results.*"
-           
+          src: results.*
+          dst: scan-results/results.*
+          
           
