@@ -33,6 +33,5 @@ else
 kubescape scan framework nsa $2 -t $3 -f $4 $savetostr
 fi
 
-ls -a .
 
 
