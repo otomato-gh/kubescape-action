@@ -10,7 +10,7 @@ How to use kubescape in CI. Sample actions. Desired features (schematically, wit
     # [⚠️ Required] 
     # A version of involved binary (See ARMO releases page: https://github.com/armosec/kubescape/releases ).
     path: '.' 
-    # [⚠️ Required] 
+    # [⚙️ Optional] 
     # A path where to look for deployments' YAML to scan. Default is repo's home dir.
     threshold: 20 
     # [⚙️ Optional] 
