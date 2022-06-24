@@ -22,14 +22,24 @@ export savetostr="--output results.pdf"
 echo "Output format is set to: $4, so we'll save the results with $savetostr"
 fi
 
-# checking whether the threshold is empty or not 
-
-if test -z "$3"
-then 
-kubescape scan framework nsa $2 -f $4 $savetostr
+if test -z "$5"
+# checking whether the cluster (kube-context) is empty or not
+then
+ if test -z "$3"
+ # checking whether the threshold is empty or not
+ then 
+ kubescape scan framework nsa $2 -f $4 $savetostr
+ else 
+ kubescape scan framework nsa $2 -t $3 -f $4 $savetostr
+ fi
 else 
-kubescape scan framework nsa $2 -t $3 -f $4 $savetostr
+ if test -z "$3"
+ # checking whether the threshold is empty or not
+ then 
+ kubescape scan framework nsa --kube-context $5 -f $4 $savetostr
+ else 
+ kubescape scan framework nsa --kube-context $5 -t $3 -f $4 $savetostr
+ fi
 fi
-
 
 
