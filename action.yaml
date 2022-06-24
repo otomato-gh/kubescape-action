@@ -11,7 +11,7 @@ inputs:
     default: 'v2.0.158'
   path:
     description: 'File or directory to run scan on'
-    required: false
+    required: true
     default: '.'
   threshold:
     description: 'Parameter to set the threshold (optional)'
