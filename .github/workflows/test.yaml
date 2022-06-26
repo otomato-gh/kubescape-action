@@ -5,7 +5,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-        - name: Scan files 
+      - name: Scan files 
         uses: otomato-gh/kubescape-action@main
         with:
           ksversion: 'v2.0.155'
