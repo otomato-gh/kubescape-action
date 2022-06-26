@@ -5,41 +5,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Prepare file to scan
-        run: |
-          curl -O https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
-      - name: Scan files 
+        - name: Scan files 
         uses: otomato-gh/kubescape-action@main
         with:
           ksversion: 'v2.0.155'
-          format: 'json'
-          path: 'deploy.yaml'
-      #- name: Observe Runner Directory (Debug only)
-      #  if: always()
-      #  run: ls -a .
-      #- name: Send Scan Results by E-mail
-      #  if: always()
-      #  uses: dawidd6/action-send-mail@v3
-      #  with:
-      #    server_address: smtp.gmail.com
-      #    server_port: 465
-          # Optional (recommended): mail server username:
-          # username: ${{secrets.MAIL_USERNAME}}
-          # Optional (recommended) mail server password:
-          # password: ${{secrets.MAIL_PASSWORD}}
-      #    subject: GHA Kubescape Scan Result
-      #    to: roman@otomato.io        
-      #    from: GitHub Actions Runner <runner@github.com>
-      #    secure: true
-          # Optional plain body:
-      #    body: Report from ${{github.repository}} are ready! See attachment.
-          # Optional HTML body read from file:
-          # html_body: file://README.html
-      #    ignore_cert: true
-          # Optional converting Markdown to HTML (set content_type to text/html too):
-      #    convert_markdown: false
-          # Optional attachments:
-      #    attachments: results.*
+          format: 'junit'
+          path: 'toscan/*'
       - name: Retrieve Scan Results via File Upload
         if: always() 
         uses: actions/upload-artifact@v3
