@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test
+  name: test
+spec:
+  externalName: en
+  selector:
+    app: test
+  type: ExternalName
+status:
+  loadBalancer: {}
