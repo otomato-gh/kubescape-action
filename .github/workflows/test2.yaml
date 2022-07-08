@@ -1,1 +1,31 @@
-
+name: Test2
+on:
+  workflow_dispatch:
+jobs:
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set K8s context
+      uses: ossrs/k8s-set-context-action@v1
+      with:
+        kubeconfig: ${{ secrets.KUBECONFIG_CONTENT }}
+    - name: Save context as a step's outout
+      run: |
+        echo "::set-output name=KUBE_CONTEXT::$(kubectl config current-context)"
+      id: savecontext
+    - name: Scan cluster
+      uses: otomato-gh/kubescape-action@main
+      with:
+          ksversion: 'v2.0.155'
+          format:  'json'
+          context: ${{ steps.savecontext.outputs.KUBE_CONTEXT }}
+      env: 
+        KUBECONFIG_CONTENT: ${{ secrets.KUBECONFIG_CONTENT }}
+    - name: Retrieve Scan Results via File Upload
+      if: always() 
+      uses: actions/upload-artifact@v3
+      with:
+        name: scan-results
+        path: results.*         
+          
+          

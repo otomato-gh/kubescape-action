@@ -22,8 +22,8 @@ inputs:
     # Supported formats: "pretty-printer","json","junit","prometheus","pdf" (default "pretty-printer")
     required: false
     default: 'pretty-printer'
-  cluster:
-    description: 'K8s cluster (kube-context) to run scan on'
+  context:
+    description: 'K8s cluster context (kube-context) to run scan on'
     required: false
     default: ''    
 runs:
@@ -34,7 +34,10 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.threshold }}
     - ${{ inputs.format }}
-    - ${{ inputs.cluster }}
+    - ${{ inputs.context }}
+
+
+    
 
     
   

@@ -18,9 +18,9 @@ How to use kubescape in CI. Sample actions. Desired features (schematically, wit
     format: 'json' 
     # [⚙️ Optional] 
     # An output's format: "pretty-printer", "json", "junit", "prometheus", "pdf" (default is "pretty-printer" (raw console dump)).
-    cluster: ''
+    context: ''
     # [⚙️ Optional]
-    # K8s cluster (kube-context) to run scan on (default is empty, so not set, and thus we're going to scan YAML files only).
+    # K8s cluster's context (kube-context) to run scan on (default is empty, so not set, and thus we're going to scan YAML files only). 
 ```         
 Scanning process itself is to be performed inside a docker container. For "json", "junit" and "pdf" this action provides report saving implemented as an uploaded artifact. This is mean, the report may be downloaded for consequent analysis.
 
