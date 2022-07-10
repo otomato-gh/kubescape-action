@@ -29,7 +29,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env: DOCKER_BUILDKIT=1
+#  env: DOCKER_BUILDKIT=1
   args:
     - ${{ inputs.ksversion }}
     - ${{ inputs.path }}
