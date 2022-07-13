@@ -24,4 +24,4 @@ How to use kubescape in CI. Sample actions. Desired features (schematically, wit
 ```         
 Scanning process itself is to be performed inside a docker container. For "json", "junit" and "pdf" this action provides report saving implemented as an uploaded artifact. This is mean, the report may be downloaded for consequent analysis.
 
-🐞 Please keep in mind: due to `kubescape` command syntax you can choose to scan only one thing: either `path` or `cluster`. It makes no sense to set both parameters at the same time.
+🐞 Please keep in mind: due to `kubescape` command syntax you can choose to scan only one thing: either `path` or `context`. It makes no sense to set both parameters at the same time.
