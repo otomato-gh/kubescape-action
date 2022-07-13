@@ -12,7 +12,7 @@ inputs:
   path:
     description: 'File or directory to run scan on'
     required: false
-    default: ''
+    default: '.'
   threshold:
     description: 'Parameter to set the threshold (optional)'
     required: false
