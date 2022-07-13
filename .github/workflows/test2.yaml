@@ -9,13 +9,16 @@ jobs:
       uses: actions/checkout@v3    
     - name: Write kubeconfig to file
       run: echo "${{ secrets.KUBECONFIG_CONTENT }}" > mykubeconfig
-    - name: Verify kubeconfig substitution 
+    - name: Verify kubeconfig substitution and set context
+      id: verifyandset
       run: |
+        var=$(kubectl config current-context)
         echo $KUBECONFIG
         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
         chmod +x kubectl
         kubectl config current-context
         kubectl get pod -A
+        echo "::set-output name=KUBE_CONTEXT::$var"
       env: 
         KUBECONFIG: mykubeconfig
     - name: Scan cluster
@@ -23,7 +26,7 @@ jobs:
       with:
           ksversion: 'v2.0.155'
           format:  'json'
-          context: ${{ steps.savecontext.outputs.KUBE_CONTEXT }}
+          context: ${{ steps.verifyandset.outputs.KUBE_CONTEXT }}
       env: 
         KUBECONFIG: mykubeconfig
     - name: Retrieve Scan Results via File Upload
