@@ -2,19 +2,22 @@ name: Test2
 on:
   workflow_dispatch:
 jobs:
-  test2:
+  scan-cluster:
    runs-on: ubuntu-latest
    steps:  
     - name: Checkout
       uses: actions/checkout@v3    
-    - name: Set K8s context
-      uses: ossrs/k8s-set-context-action@v1
-      with:
-        kubeconfig: ${{ secrets.KUBECONFIG_CONTENT }}
-    - name: Save context as a step's outout
+    - name: Write kubeconfig to file
+      run: echo "${{ secrets.KUBECONFIG_CONTENT }}" > mykubeconfig
+    - name: Verify kubeconfig substitution 
       run: |
-        echo "::set-output name=KUBE_CONTEXT::$(kubectl config current-context)"
-      id: savecontext
+        echo $KUBECONFIG
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        kubectl config current-context
+        kubectl get pod -A
+      env: 
+        KUBECONFIG: mykubeconfig
     - name: Scan cluster
       uses: otomato-gh/kubescape-action@main
       with:
@@ -22,12 +25,12 @@ jobs:
           format:  'json'
           context: ${{ steps.savecontext.outputs.KUBE_CONTEXT }}
       env: 
-        KUBECONFIG_CONTENT: ${{ secrets.KUBECONFIG_CONTENT }}
+        KUBECONFIG: mykubeconfig
     - name: Retrieve Scan Results via File Upload
       if: always() 
       uses: actions/upload-artifact@v3
       with:
         name: scan-results
-        path: results.*         
-          
-          
+        path: results.*    
+        
+        
